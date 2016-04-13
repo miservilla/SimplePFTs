@@ -22,14 +22,43 @@ public class Main {
         int fev1_fvcInt = Integer.parseInt(FEV1_FVC);
 
 
+        if (fvcInt < 80 && fev1_fvcInt < 70)
+            System.out.print("Looks like mixed restrictive and obstructive disorder.");
         if (fvcInt < 80)
             System.out.println("Looks like restriction.");
         if (fev1_fvcInt < 70)
             System.out.println("Looks like obstruction.");
+        else System.out.printf("Must be normal spirometry!");
         
 
 
     }
+    private static String Severity(int fev1int)
+    {String s = null;
+        if (fev1int >= 70)
+        {
+            s = "mild";
+        }
+        else if (fev1int > 59 && fev1int < 70)
+        {
+            s = "moderate";
+        }
+        else if (fev1int > 49 && fev1int < 60)
+        {
+            s = "moderately severe";
+        }
+        else if (fev1int > 34 && fev1int < 50)
+        {
+            s = "severe";
+        }
+        else if (fev1int < 35)
+        {
+            s = "very severe";
+        }
+
+        return s;
+    }
+
     private static String TryParseIn(String number){ //method to check input to be integer
         int i = 0;
         do {
