@@ -10,6 +10,7 @@ public class Main {
         String FVC;
         String FEV1;
         String FEV1_FVC;
+        String s = null;
 
         System.out.println("Please enter FVC % value:");
         FVC = TryParseIn(in.next());
@@ -23,7 +24,8 @@ public class Main {
 
 
         if (fvcInt < 80 && fev1_fvcInt < 70)
-            System.out.print("Looks like mixed restrictive and obstructive disorder.");
+            s = Severity(fev1Int);
+            System.out.print("Looks like mixed restrictive and" + s + " obstructive disorder.");
         if (fvcInt < 80)
             System.out.println("Looks like restriction.");
         if (fev1_fvcInt < 70)
