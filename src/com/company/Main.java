@@ -10,27 +10,31 @@ public class Main {
         String FVC;
         String FEV1;
         String FEV1_FVC;
-        String s = null;
+        String s;
 
-        System.out.println("Please enter FVC % value:");
+        System.out.println("Please enter FVC % predicted value:");
         FVC = TryParseIn(in.next());
         int fvcInt = Integer.parseInt(FVC);
-        System.out.println("Please enter FEV1 % value:");
+        System.out.println("Please enter FEV1 % predicted value:");
         FEV1 = TryParseIn(in.next());
         int fev1Int = Integer.parseInt(FEV1);
-        System.out.println("Please enter FEV1/FVC");
+        System.out.println("Please enter actual FEV1/FVC %:");
         FEV1_FVC = TryParseIn(in.next());
         int fev1_fvcInt = Integer.parseInt(FEV1_FVC);
 
 
+        s = Severity(fev1Int);
+
         if (fvcInt < 80 && fev1_fvcInt < 70)
-            s = Severity(fev1Int);
-            System.out.print("Looks like mixed restrictive and" + s + " obstructive disorder.");
-        if (fvcInt < 80)
-            System.out.println("Looks like restriction.");
-        if (fev1_fvcInt < 70)
-            System.out.println("Looks like obstruction.");
-        else System.out.printf("Must be normal spirometry!");
+            System.out.println("Looks like mixed restrictive and " + s + " obstructive disorder.");
+
+        else if (fvcInt < 80)
+            System.out.println("Looks like a restrictive disorder.");
+
+        else if (fev1_fvcInt < 70)
+            System.out.println("Looks like a " + s + " obstructive disorder.");
+
+        else System.out.println("Looks like normal spirometry!");
         
 
 
