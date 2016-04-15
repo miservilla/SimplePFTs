@@ -73,7 +73,7 @@ public class Main {
 
                 return number;
             } catch (NumberFormatException e) {
-                System.out.println("Value can't be parsed as a number, please try again!");
+                System.out.println("Value can't be parsed as an integer, please try again!");
 
                 Scanner in = new Scanner(System.in);
                 number = in.next();
