@@ -65,24 +65,36 @@ public class Main {
         return s;
     }
 
-    private static String TryParseIn(String number){ //method to check input to be integer
-        int i = 0;
-        do {
-            try {
-                Integer.parseInt(number);
+//    private static String TryParseIn(String number){ //method to check input to be integer
+//        int i = 0;
+//        do {
+//            try {
+//                Integer.parseInt(number);
+//
+//                return number;
+//            } catch (NumberFormatException e) {
+//                System.out.println("Value can't be parsed as a number, please try again!");
+//
+//                Scanner in = new Scanner(System.in);
+//                number = in.next();
+//
+//
+//            }
+//        } while (i == 0);
+//
+//        return number;
+//
+//    }
+      private static int TryParseIn(int number){
+          Scanner sc = new Scanner(System.in);
+          do {
+              while (!sc.hasNextInt()){
+                  System.out.printf("Can not parse integer, please provide integer value!");
+                  sc.next();
+              }
+              number = sc.nextInt();
+          } while (number <= 0);
 
-                return number;
-            } catch (NumberFormatException e) {
-                System.out.println("Value can't be parsed as an integer, please try again!");
-
-                Scanner in = new Scanner(System.in);
-                number = in.next();
-
-
-            }
-        } while (i == 0);
-
-        return number;
-
-    }
+          return number;
+      }
 }
