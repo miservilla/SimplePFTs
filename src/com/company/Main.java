@@ -1,15 +1,10 @@
 package com.company;
 
 import java.util.Scanner;
-import java.util.zip.Inflater;
 
 public class Main {
 
     public static void main(String[] args) {
-	    Scanner in = new Scanner(System.in);
-        String FVC;
-        String FEV1;
-        String FEV1_FVC;
         String s;
 
         System.out.println("Please enter FVC % predicted value:");
