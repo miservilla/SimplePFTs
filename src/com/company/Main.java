@@ -13,15 +13,11 @@ public class Main {
         String s;
 
         System.out.println("Please enter FVC % predicted value:");
-        FVC = TryParseIn(in.next());
-        int fvcInt = Integer.parseInt(FVC);
+        int fvcInt = TryParseIn();
         System.out.println("Please enter FEV1 % predicted value:");
-        FEV1 = TryParseIn(in.next());
-        int fev1Int = Integer.parseInt(FEV1);
+        int fev1Int = TryParseIn();
         System.out.println("Please enter actual FEV1/FVC %:");
-        FEV1_FVC = TryParseIn(in.next());
-        int fev1_fvcInt = Integer.parseInt(FEV1_FVC);
-
+        int fev1_fvcInt = TryParseIn();
 
         s = Severity(fev1Int);
 
@@ -65,34 +61,18 @@ public class Main {
         return s;
     }
 
-//    private static String TryParseIn(String number){ //method to check input to be integer
-//        int i = 0;
-//        do {
-//            try {
-//                Integer.parseInt(number);
-//
-//                return number;
-//            } catch (NumberFormatException e) {
-//                System.out.println("Value can't be parsed as a number, please try again!");
-//
-//                Scanner in = new Scanner(System.in);
-//                number = in.next();
-//
-//
-//            }
-//        } while (i == 0);
-//
-//        return number;
-//
-//    }
-      private static int TryParseIn(int number){
+      private static int TryParseIn(){
           Scanner sc = new Scanner(System.in);
+          int number;
           do {
               while (!sc.hasNextInt()){
-                  System.out.printf("Can not parse integer, please provide integer value!");
+                  System.out.printf("Can not parse, please enter positive integer value!\n");
                   sc.next();
               }
               number = sc.nextInt();
+              if (number <=0){
+                  System.out.printf("Can not parse, please enter positive integer value!\n");
+              }
           } while (number <= 0);
 
           return number;
